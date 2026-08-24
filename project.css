@@ -1,0 +1,705 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7f6;
+  color: #222;
+  line-height: 1.6;
+}
+
+
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.brand-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo-icon {
+  font-size: 38px;
+}
+
+.logo-text {
+  color: #198754;
+}
+
+.shop-title {
+  font-size: 22px;
+  color: #222;
+}
+
+.shop-location,
+.shop-contact {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ================================
+   NAVIGATION
+================================ */
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+}
+
+.nav-link {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: #198754;
+  color: white;
+}
+
+/* ================================
+   DARK MODE BUTTON
+================================ */
+
+.btn-dark-mode {
+  border: 1px solid #333;
+  background: #fff;
+  padding: 9px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-dark-mode:hover {
+  background: #222;
+  color: white;
+}
+
+/* ================================
+   MAIN CONTAINER
+================================ */
+
+.main-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 30px 25px;
+}
+
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 28px;
+  color: #198754;
+  border-left: 5px solid #198754;
+  padding-left: 12px;
+}
+
+/* ================================
+   DASHBOARD
+================================ */
+
+.dashboard-section {
+  margin-bottom: 40px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 10px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border: 1px solid #ddd;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+}
+
+.card-icon {
+  font-size: 38px;
+}
+
+.card-title {
+  font-size: 15px;
+  color: #666;
+}
+
+.card-value {
+  font-size: 25px;
+  font-weight: bold;
+  color: #198754;
+}
+
+/* ================================
+   BILLING LAYOUT
+================================ */
+
+.billing-section {
+  margin-bottom: 50px;
+}
+
+.billing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 25px;
+}
+
+.billing-input-panel,
+.billing-summary-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ================================
+   FORM CARDS
+================================ */
+
+.form-card,
+.cart-container,
+.summary-container,
+.payment-container,
+.bill-actions-container {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 22px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.form-card-title,
+.cart-title,
+.summary-title,
+.payment-title {
+  color: #198754;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* ================================
+   FORM
+================================ */
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.col-half {
+  width: 50%;
+}
+
+.col-full {
+  width: 100%;
+}
+
+.meta-group {
+  flex: 1;
+}
+
+label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-control:focus {
+  border-color: #198754;
+  box-shadow: 0 0 0 2px rgba(25, 135, 84, 0.12);
+}
+
+.select-control {
+  background: white;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+
+.btn {
+  border: none;
+  padding: 11px 17px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background: #0d6efd;
+  color: white;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-success {
+  background: #198754;
+  color: white;
+}
+
+.btn-info {
+  background: #0dcaf0;
+  color: #111;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-group-inline {
+  justify-content: flex-end;
+}
+
+/* ================================
+   CART TABLE
+================================ */
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 750px;
+}
+
+.cart-table th {
+  background: #198754;
+  color: white;
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.cart-table td {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 8px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.cart-table tbody tr:hover {
+  background: #f5f5f5;
+}
+
+.empty-cart-container {
+  padding: 25px;
+  text-align: center;
+}
+
+.empty-cart-message {
+  color: #777;
+}
+
+/* ================================
+   BILLING SUMMARY
+================================ */
+
+.summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.summary-label {
+  font-weight: 600;
+}
+
+.summary-value {
+  font-weight: 600;
+}
+
+.grand-total-row {
+  border-top: 2px solid #198754;
+  border-bottom: none;
+  padding-top: 15px;
+  font-size: 20px;
+  color: #198754;
+}
+
+/* ================================
+   PAYMENT
+================================ */
+
+.payment-method-fieldset {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.payment-legend {
+  padding: 0 8px;
+  font-weight: bold;
+}
+
+.payment-options-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.payment-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* ================================
+   ACTION BUTTONS
+================================ */
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* ================================
+   PRINTABLE INVOICE
+================================ */
+
+.invoice-section {
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.invoice-container {
+  width: 100%;
+}
+
+.invoice-header {
+  text-align: center;
+}
+
+.invoice-shop-name {
+  font-size: 25px;
+}
+
+.invoice-shop-address,
+.invoice-shop-phone {
+  font-size: 14px;
+  color: #555;
+}
+
+.invoice-divider {
+  margin: 10px 0;
+  color: #777;
+  overflow: hidden;
+}
+
+.invoice-meta {
+  margin-top: 15px;
+}
+
+.meta-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.meta-title {
+  font-weight: bold;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.invoice-table th,
+.invoice-table td {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.invoice-table th {
+  font-weight: bold;
+}
+
+.invoice-calculations {
+  margin-top: 15px;
+}
+
+.calc-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.grand-total-line {
+  font-size: 20px;
+}
+
+.invoice-payment-info {
+  margin-top: 10px;
+}
+
+.invoice-footer-message {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.greeting-main {
+  font-size: 18px;
+  font-weight: bold;
+  color: #198754;
+}
+
+.greeting-sub {
+  font-size: 15px;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer {
+  background: #212529;
+  color: white;
+  padding: 35px 25px 20px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: auto;
+  text-align: center;
+}
+
+.footer-shop-name {
+  font-size: 22px;
+}
+
+.footer-tagline {
+  color: #ddd;
+}
+
+.footer-greeting {
+  margin-top: 5px;
+  color: #bbb;
+}
+
+.footer-contact {
+  margin-top: 20px;
+}
+
+.footer-contact h4 {
+  margin-bottom: 8px;
+}
+
+.footer-address {
+  font-style: normal;
+  color: #ccc;
+}
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  margin-top: 25px;
+  padding-top: 15px;
+}
+
+.copyright-text {
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 1100px) {
+
+  .header-container {
+    flex-wrap: wrap;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .billing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .brand-info {
+    justify-content: center;
+  }
+
+  .store-details {
+    text-align: center;
+  }
+
+  .main-nav {
+    overflow-x: auto;
+  }
+
+  .nav-list {
+    justify-content: center;
+  }
+
+  .header-actions {
+    text-align: center;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .col-half {
+    width: 100%;
+  }
+
+  .payment-inputs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .main-container {
+    padding: 20px 12px;
+  }
+
+  .invoice-section {
+    margin: 20px 10px;
+    padding: 20px;
+  }
+}
+
+/* ================================
+   PRINT STYLES
+================================ */
+
+@media print {
+
+  body {
+    background: white;
+  }
+
+  body > * {
+    display: none;
+  }
+
+  #mainContent,
+  #printableBill {
+    display: block;
+  }
+
+  #printableBill {
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .invoice-section {
+    display: block;
+  }
+}
