@@ -1,20 +1,38 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# FreshMart Grocery Billing System
 
-# Run and deploy your AI Studio app
+A web-based grocery shop billing system for managing grocery bills, products, customers, payments, discounts, GST, and invoices.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/f9b9d453-3945-41af-a7fe-3500d342cd73
+- Customer information
+- Product selection
+- Product search
+- Shopping cart
+- Quantity management
+- Discount calculation
+- GST calculation
+- Payment options
+- Amount paid and change calculation
+- Invoice generation
+- Print bill
+- New bill
+- Clear cart
+- Update cart
+- Dark mode
+- Billing dashboard
 
-## Run Locally
+## Technologies Used
 
-**Prerequisites:**  Node.js
+- HTML5
+- CSS3
+- JavaScript
 
+## How to Run
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. Download or clone the repository.
+2. Open `project.html` in your browser.
+3. Use the billing system to create and manage bills.
+
+## Project
+
+**FreshMart Grocery Store Billing System**
