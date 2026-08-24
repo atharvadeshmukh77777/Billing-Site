@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grocery Shop Billing System - FreshMart</title>
+  <!-- Stylesheet Link -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== 1. HEADER SECTION ==================== -->
+  <header id="mainHeader" class="header">
+    <div class="header-container">
+      
+      <!-- Store Branding & Logo -->
+      <div class="brand-info">
+        <div id="shopLogo" class="logo-placeholder" aria-label="FreshMart Store Logo">
+          <span class="logo-icon">🛒</span>
+          <span class="logo-text">FreshMart</span>
+        </div>
+        <div class="store-details">
+          <h1 id="shopName" class="shop-title">FreshMart Grocery Store</h1>
+          <p id="shopLocation" class="shop-location">123 Market Street, Downtown, City - 560001</p>
+          <p id="shopContact" class="shop-contact">Phone: +91 98765 43210 | Email: support@freshmart.com</p>
+        </div>
+      </div>
+
+      <!-- Navigation Bar -->
+      <nav id="mainNavigation" class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#dashboard" class="nav-link active" id="navHome">Home</a></li>
+          <li class="nav-item"><a href="#billing" class="nav-link" id="navBilling">Billing</a></li>
+          <li class="nav-item"><a href="#products" class="nav-link" id="navProducts">Products</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link" id="navAbout">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Theme / Dark Mode Control -->
+      <div class="header-actions">
+        <button type="button" id="darkModeToggle" class="btn-dark-mode" aria-label="Toggle Dark Mode">
+          <span class="dark-mode-icon">🌙</span>
+          <span class="dark-mode-label">Dark Mode</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT AREA ==================== -->
+  <main id="mainContent" class="main-container">
+
+    <!-- ==================== 2. MAIN DASHBOARD SECTION ==================== -->
+    <section id="dashboard" class="dashboard-section" aria-labelledby="dashboardHeading">
+      <div class="section-header">
+        <h2 id="dashboardHeading" class="section-title">Dashboard Overview</h2>
+      </div>
+      
+      <div class="dashboard-grid">
+        <!-- Today's Sales Card -->
+        <article id="todaySalesCard" class="dashboard-card sales-card">
+          <div class="card-icon">💰</div>
+          <div class="card-details">
+            <h3 class="card-title">Today's Sales</h3>
+            <p id="todaySales" class="card-value">₹0.00</p>
+          </div>
+        </article>
+
+        <!-- Total Bills Card -->
+        <article id="totalBillsCard" class="dashboard-card bills-card">
+          <div class="card-icon">🧾</div>
+          <div class="card-details">
+            <h3 class="card-title">Total Bills</h3>
+            <p id="totalBills" class="card-value">0</p>
+          </div>
+        </article>
+
+        <!-- Total Products Card -->
+        <article id="totalProductsCard" class="dashboard-card products-card">
+          <div class="card-icon">📦</div>
+          <div class="card-details">
+            <h3 class="card-title">Total Products</h3>
+            <p id="totalProducts" class="card-value">19</p>
+          </div>
+        </article>
+
+        <!-- Total Customers Card -->
+        <article id="totalCustomersCard" class="dashboard-card customers-card">
+          <div class="card-icon">👥</div>
+          <div class="card-details">
+            <h3 class="card-title">Total Customers</h3>
+            <p id="totalCustomers" class="card-value">0</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== 3. BILLING SECTION ==================== -->
+    <section id="billing" class="billing-section" aria-labelledby="billingHeading">
+      <div class="section-header">
+        <h2 id="billingHeading" class="section-title">POS Billing Counter</h2>
+      </div>
+
+      <div class="billing-grid">
+        
+        <!-- Left Panel: Customer & Product Input Details -->
+        <div class="billing-input-panel">
+          
+          <!-- Bill & Customer Information Card -->
+          <div class="form-card customer-info-card">
+            <h3 class="form-card-title">Customer & Bill Info</h3>
+            
+            <div class="form-row meta-row">
+              <div class="form-group meta-group">
+                <label for="billNumber">Bill No:</label>
+                <input type="text" id="billNumber" name="billNumber" class="form-control" value="BILL-1001" readonly>
+              </div>
+
+              <div class="form-group meta-group">
+                <label for="billDate">Date:</label>
+                <input type="date" id="billDate" name="billDate" class="form-control">
+              </div>
+
+              <div class="form-group meta-group">
+                <label for="billTime">Time:</label>
+                <input type="time" id="billTime" name="billTime" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-half">
+                <label for="customerName">Customer Name:</label>
+                <input type="text" id="customerName" name="customerName" class="form-control" placeholder="Enter customer name" required>
+              </div>
+
+              <div class="form-group col-half">
+                <label for="customerPhone">Customer Mobile No:</label>
+                <input type="tel" id="customerPhone" name="customerPhone" class="form-control" placeholder="Enter 10-digit mobile no" pattern="[0-9]{10}">
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Selection Area Card -->
+          <div class="form-card product-selection-card">
+            <h3 class="form-card-title">Select Grocery Items</h3>
+
+            <div class="form-row">
+              <div class="form-group col-full">
+                <label for="productSearch">Search Product:</label>
+                <input type="search" id="productSearch" name="productSearch" class="form-control" placeholder="Search by name, barcode, or SKU...">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <!-- Category Dropdown -->
+              <div class="form-group col-half">
+                <label for="categorySelect">
+                    Category:</label>
+                <select id="categorySelect" name="categorySelect" class="form-control select-control">
+                  <option value="" selected>-- Select Category --</option>
+                  <option value="fruits-vegetables">Fruits &amp; Vegetables</option>
+                  <option value="dairy">Dairy</option>
+                  <option value="grains">Grains</option>
+                  <option value="beverages">Beverages</option>
+                  <option value="snacks">Snacks</option>
+                  <option value="personal-care">Personal Care</option>
+                  <option value="household-items">Household Items</option>
+                </select>
+              </div>
+
+              <!-- Product Dropdown -->
+              <div class="form-group col-half">
+                <label for="productSelect">Product:</label>
+                <select id="productSelect" name="productSelect" class="form-control select-control">
+                  <option value="" selected>-- Select Product --</option>
+                  <optgroup label="Grains">
+                    <option value="rice">Rice</option>
+                    <option value="wheat">Wheat</option>
+                    <option value="sugar">Sugar</option>
+                    <option value="salt">Salt</option>
+                    <option value="cooking-oil">Cooking Oil</option>
+                  </optgroup>
+                  <optgroup label="Dairy">
+                    <option value="milk">Milk</option>
+                    <option value="bread">Bread</option>
+                  </optgroup>
+                  <optgroup label="Snacks &amp; Beverages">
+                    <option value="biscuits">Biscuits</option>
+                    <option value="tea">Tea</option>
+                    <option value="coffee">Coffee</option>
+                    <option value="juice">Juice</option>
+                  </optgroup>
+                  <optgroup label="Fruits &amp; Vegetables">
+                    <option value="apples">Apples</option>
+                    <option value="bananas">Bananas</option>
+                    <option value="tomatoes">Tomatoes</option>
+                    <option value="potatoes">Potatoes</option>
+                  </optgroup>
+                  <optgroup label="Personal Care &amp; Household">
+                    <option value="soap">Soap</option>
+                    <option value="shampoo">Shampoo</option>
+                    <option value="toothpaste">Toothpaste</option>
+                    <option value="detergent">Detergent</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row align-items-end">
+              <div class="form-group col-half">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" class="form-control" min="1" value="1" step="1">
+              </div>
+
+              <div class="form-group col-half btn-group-inline">
+                <button type="button" id="addToCartBtn" class="btn btn-primary btn-block">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Panel: Cart Table & Invoice Summary -->
+        <div class="billing-summary-panel">
+          
+          <!-- ==================== 4. SHOPPING CART / BILL TABLE ==================== -->
+          <div class="cart-container">
+            <div class="cart-header">
+              <h3 class="cart-title">Cart Items</h3>
+            </div>
+
+            <div class="table-responsive">
+              <table id="cartTable" class="table cart-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Sr. No.</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Discount</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="cartItems">
+                  <!-- Dynamic rows will be inserted here by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Empty Cart Message Placeholder -->
+            <div id="emptyCartNotice" class="empty-cart-container">
+              <p class="empty-cart-message">No products added to cart.</p>
+            </div>
+          </div>
+
+          <!-- ==================== 5. BILLING SUMMARY ==================== -->
+          <div class="summary-container">
+            <h3 class="summary-title">Billing Summary</h3>
+            
+            <div class="summary-details">
+              <div class="summary-row">
+                <span class="summary-label">Subtotal:</span>
+                <span id="subtotal" class="summary-value">₹0.00</span>
+              </div>
+
+              <div class="summary-row">
+                <span class="summary-label">Discount:</span>
+                <span id="discount" class="summary-value">₹0.00</span>
+              </div>
+
+              <div class="summary-row">
+                <span class="summary-label">GST:</span>
+                <span id="gst" class="summary-value">₹0.00</span>
+              </div>
+
+              <div class="summary-row">
+                <span class="summary-label">Other Charges:</span>
+                <span id="otherCharges" class="summary-value">₹0.00</span>
+              </div>
+
+              <div class="summary-row grand-total-row">
+                <span class="summary-label">Grand Total:</span>
+                <span id="grandTotal" class="summary-value">₹0.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== 6. PAYMENT SECTION ==================== -->
+          <div class="payment-container">
+            <h3 class="payment-title">Payment Options</h3>
+            
+            <fieldset class="payment-method-fieldset">
+              <legend class="payment-legend">Select Payment Method</legend>
+              <div id="paymentMethod" class="payment-options-group">
+                <div class="radio-option">
+                  <input type="radio" id="payCash" name="paymentMethod" value="Cash" checked>
+                  <label for="payCash">Cash</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="payUPI" name="paymentMethod" value="UPI">
+                  <label for="payUPI">UPI</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="payCard" name="paymentMethod" value="Card">
+                  <label for="payCard">Debit/Credit Card</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="payment-inputs-grid">
+              <div class="form-group">
+                <label for="amountPaid">Amount Paid (₹):</label>
+                <input type="number" id="amountPaid" name="amountPaid" class="form-control" placeholder="0.00" min="0" step="0.01">
+              </div>
+
+              <div class="form-group">
+                <label for="changeAmount">Balance / Change (₹):</label>
+                <input type="text" id="changeAmount" name="changeAmount" class="form-control" value="₹0.00" readonly>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== 7. BILL ACTION BUTTONS ==================== -->
+          <div class="bill-actions-container">
+            <div class="actions-grid">
+              <button type="button" id="addProductBtn" class="btn btn-secondary">Add Product</button>
+              <button type="button" id="updateCartBtn" class="btn btn-secondary">Update Cart</button>
+              <button type="button" id="clearCartBtn" class="btn btn-danger">Clear Cart</button>
+              <button type="button" id="generateBillBtn" class="btn btn-success">Generate Bill</button>
+              <button type="button" id="printBillBtn" class="btn btn-info">Print Bill</button>
+              <button type="button" id="newBillBtn" class="btn btn-primary">New Bill</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 8. PRINTABLE INVOICE STRUCTURE ==================== -->
+    <section id="printableBill" class="invoice-section" aria-label="Printable Invoice">
+      <div class="invoice-container">
+        
+        <!-- Invoice Header -->
+        <div class="invoice-header">
+          <h2 class="invoice-shop-name">FreshMart Grocery Store</h2>
+          <p class="invoice-shop-address">123 Market Street, Downtown, City - 560001</p>
+          <p class="invoice-shop-phone">Phone: +91 98765 43210</p>
+          <div class="invoice-divider">--------------------------------------------------</div>
+        </div>
+
+        <!-- Invoice Meta Details -->
+        <div class="invoice-meta">
+          <div class="meta-line">
+            <span class="meta-title">Bill Number:</span>
+            <span id="printBillNumber" class="meta-content">BILL-1001</span>
+          </div>
+          <div class="meta-line">
+            <span class="meta-title">Date:</span>
+            <span id="printBillDate" class="meta-content">2026-08-23</span>
+          </div>
+          <div class="meta-line">
+            <span class="meta-title">Time:</span>
+            <span id="printBillTime" class="meta-content">11:12 PM</span>
+          </div>
+          <div class="meta-line">
+            <span class="meta-title">Customer Name:</span>
+            <span id="printCustomerName" class="meta-content">Walk-in Customer</span>
+          </div>
+          <div class="invoice-divider">--------------------------------------------------</div>
+        </div>
+
+        <!-- Invoice Product Table -->
+        <div class="invoice-table-wrapper">
+          <table class="invoice-table">
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Price</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody id="invoiceItems">
+              <!-- Dynamically populated items for printing -->
+              <tr>
+                <td>Rice (1kg)</td>
+                <td>2</td>
+                <td>₹60.00</td>
+                <td>₹0.00</td>
+                <td>₹120.00</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="invoice-divider">--------------------------------------------------</div>
+        </div>
+
+        <!-- Invoice Calculation Summary -->
+        <div class="invoice-calculations">
+          <div class="calc-line">
+            <span>Subtotal:</span>
+            <span id="printSubtotal">₹120.00</span>
+          </div>
+          <div class="calc-line">
+            <span>Discount:</span>
+            <span id="printDiscount">₹0.00</span>
+          </div>
+          <div class="calc-line">
+            <span>GST:</span>
+            <span id="printGst">₹6.00</span>
+          </div>
+          <div class="calc-line">
+            <span>Other Charges:</span>
+            <span id="printOtherCharges">₹0.00</span>
+          </div>
+          <div class="invoice-divider">--------------------------------------------------</div>
+          <div class="calc-line grand-total-line">
+            <strong>Grand Total:</strong>
+            <strong id="printGrandTotal">₹126.00</strong>
+          </div>
+          <div class="invoice-divider">--------------------------------------------------</div>
+        </div>
+
+        <!-- Invoice Payment Details -->
+        <div class="invoice-payment-info">
+          <div class="calc-line">
+            <span>Payment Method:</span>
+            <span id="printPaymentMethod">Cash</span>
+          </div>
+          <div class="calc-line">
+            <span>Amount Paid:</span>
+            <span id="printAmountPaid">₹150.00</span>
+          </div>
+          <div class="calc-line">
+            <span>Change:</span>
+            <span id="printChange">₹24.00</span>
+          </div>
+          <div class="invoice-divider">--------------------------------------------------</div>
+        </div>
+
+        <!-- Invoice Footer Greetings -->
+        <div class="invoice-footer-message">
+          <p class="greeting-main">Thank You for Shopping With Us!</p>
+          <p class="greeting-sub">Visit Again!</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== 9. FOOTER SECTION ==================== -->
+  <footer id="mainFooter" class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3 class="footer-shop-name">FreshMart Grocery Store</h3>
+        <p class="footer-tagline">Quality Groceries, Everyday Low Prices.</p>
+        <p class="footer-greeting">Thank you for shopping with us.</p>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact Information</h4>
+        <address class="footer-address">
+          <p>123 Market Street, Downtown, City - 560001</p>
+          <p>Phone: +91 98765 43210</p>
+          <p>Email: support@freshmart.com</p>
+        </address>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">&copy; 2026 FreshMart Grocery Store. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Link to future JavaScript file -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>
