@@ -1,7 +1,7 @@
 /**
  * ============================================================================
  * FreshMart Grocery Store - POS Billing System & Validation Engine
- * File: javascript.js
+ * File: public/javascript.js
  * Description: Complete Vanilla JavaScript implementation with exposed
  *              validation rules, dynamic product catalog, cart engine,
  *              invoice generator, and responsive UI interactions.

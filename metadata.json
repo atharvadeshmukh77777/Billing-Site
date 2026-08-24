@@ -1,0 +1,6 @@
+{
+  "name": "FreshMart Grocery Store",
+  "description": "Grocery Shop POS and Billing Counter System with product catalog, cart management, instant validation, and printable invoices.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
